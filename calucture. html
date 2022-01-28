@@ -1,0 +1,209 @@
+<html>
+<head>
+<style>
+.StandardTd {
+height: 50px;
+width: 75px;
+font-size: 35px
+}
+.div{
+width :348px;
+height :490px;
+background-color :#080636  ;
+border-radius :10px;
+}		
+.BigTd {
+height: 50px;
+width: 100%;
+font-size: 35px
+}
+.Table {
+height: 350px;
+margin :10px ;
+border-radius :5px;
+
+}
+.Input {
+height: 70px;
+width: 320px;
+ font-size: 50px;
+text-align :left;
+}
+</style>
+<script type="text/javascript">
+var numreselt,
+str, 
+
+isNotCal=false
+function onclicknum(nums){
+str=document.getElementById ("nummessege")
+if(isNotCal==true){
+str.value=""
+}
+str.value=str.value + nums
+isNotCal =false
+}
+function onclikclear(){
+str=document.getElementById ("nummessege")
+str.value =""
+}
+function onclickresult(){
+isNotCal = true
+str=document.getElementById ("nummessege")
+str. value = str.value. replace(/×/g , '*' )
+str. value = str.value. replace(/÷/g , '/' )
+numresult = eval(str.value)
+str.value = numresult
+
+} 
+
+function onclickDelete() {
+if(isNotCal == false) {
+str = document.getElementById("nummessege")
+str.value = str.value.substr(0, str.value.length-1)
+} else {
+onclickclear()
+}} 
+document.onkeydown = function(e) {
+
+switch(e.key) {
+case '1':
+onclicknum(1)
+break
+case '2':
+onclicknum(2)
+break
+case '3':
+onclicknum(3)
+break
+case '4':
+onclicknum(4)
+break
+case '5':
+onclicknum(5)
+break
+case '6':
+onclicknum(6)
+break
+case '7':
+onclicknum(7)
+break
+case '8':
+onclicknum(8)
+break
+case '9':
+onclicknum(9)
+break
+case '0':
+onclicknum(0)
+break
+case '.':
+onclicknum('.')
+break
+case '+':
+onclicknum('+')
+break
+case '-':
+onclicknum('-')
+break
+case '*':
+onclicknum('×')
+break
+case '/':
+onclicknum('÷')
+break
+case 'Backspace':
+e.preventDefault()
+onclickDelete()
+break
+case 'Enter':
+e.preventDefault()
+onclickresult()
+break
+default:
+break
+}
+} 
+</script>
+</head>
+<body>
+<h1 style="color:#080000; height:40px; text-align :center ;">آلة حاسبة بسيطة</h1>
+<div  class="div">
+<table border="1" align="left" bgColor="#2ca1f4" class="Table">
+<tr>
+<td  colspan="4" style=" text-align: center; padding: 5px 0;"> 
+<input disabled="" placeholder="0" type="text" id="nummessege" class="Input" />
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="1" id="1" onclick="onclicknum(1)" class="StandardTd">
+</td>
+<td>
+<input type="button" value="2" id="2" onclick="onclicknum(2)" class="StandardTd">
+</td>
+<td>
+<input type="button" value="3" id="3" onclick="onclicknum(3)" class="StandardTd">
+</td>
+<td>
+<input type="button" value="+" id="add" onclick="onclicknum('+')" class="StandardTd">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="4" id="4" onclick="onclicknum(4)" class="StandardTd">
+</td>
+<td>
+<input type="button" value="5" id="5" onclick="onclicknum(5)" class="StandardTd">
+</td>
+<td>
+<input type="button" value="6" id="6" onclick="onclicknum(6)" class="StandardTd">
+</td>
+<td>
+<input type="button" value="-" id="sub" onclick="onclicknum('-')" class="StandardTd">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="7" id="7" onclick="onclicknum(7)" class="StandardTd">
+</td>
+<td>
+<input type="button" value="8" id="8" onclick="onclicknum(8)" class="StandardTd">
+</td>
+<td>
+<input type="button" value="9" id="9" onclick="onclicknum(9)" class="StandardTd">
+</td>
+<td>
+<input type="button" value="×" id="mul" onclick="onclicknum('×')" class="StandardTd">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<input type="button" value="0" id="0" onclick="onclicknum(0)" class="BigTd">
+</td>
+<td>
+<input type="button" value="." id="point" onclick="onclicknum('.')" class="StandardTd">
+</td>
+<td>
+<input type="button" value="÷" id="division" onclick="onclicknum('÷')" class="StandardTd">
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" value="Del" id="delete" onclick="onclickDelete()" class="StandardTd" />
+</td>
+<td>
+<input type="button" value="C" id="clear" onclick="onclickclear()" class="StandardTd" />
+</td>
+<td colspan="2">
+<input type="button" value="=" id="result" onclick="onclickresult()" class="BigTd"/>
+</td>
+</tr>
+</table>
+<p style="color:#2ca1f7; text-align :center;font-size :40px;">
+calactuar
+</p>
+
+</div>
+</body>
+</html>
